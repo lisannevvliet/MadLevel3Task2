@@ -45,7 +45,7 @@ class PortalsFragment : Fragment() {
     private fun portalClicked(portal : Portal) {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
-        customTabsIntent.launchUrl(this.context, Uri.parse(portal.url))
+        context?.let { customTabsIntent.launchUrl(it, Uri.parse(portal.url)) }
     }
 
     // Specify the layout and adapter of the RecyclerView.
